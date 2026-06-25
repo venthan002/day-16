@@ -1,0 +1,66 @@
+using System;
+
+
+public delegate void StockPriceAlertHandler(string message);
+
+
+class Stock
+{
+    public event StockPriceAlertHandler PriceAlert;
+
+    public void CheckPrice(double price)
+    {
+        if (price > 1000)
+        {
+            PriceAlert?.Invoke("Stock price crossed the limit: " + price);
+        }
+    }
+}
+
+
+class EmailService
+{
+    public void SendEmail(string message)
+    {
+        Console.WriteLine("Email Alert: " + message);
+    }
+}
+
+class SMSService
+{
+    public void SendSMS(string message)
+    {
+        Console.WriteLine("SMS Alert: " + message);
+    }
+}
+
+class LoggingService
+{
+    public void Log(string message)
+    {
+        Console.WriteLine("Log Entry: " + message);
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stock stock = new Stock();
+
+        EmailService email = new EmailService();
+        SMSService sms = new SMSService();
+        LoggingService log = new LoggingService();
+
+
+        stock.PriceAlert += email.SendEmail;
+        stock.PriceAlert += sms.SendSMS;
+        stock.PriceAlert += log.Log;
+
+
+        stock.CheckPrice(1200);
+
+        Console.ReadLine();
+    }
+}
