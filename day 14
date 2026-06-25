@@ -1,0 +1,79 @@
+Assignment: Create Console Application using .NET Framework and .NET Core and Analyze the Bin Folder
+
+Aim:
+To create Console Applications using .NET Framework and .NET Core, analyze the bin folder contents, and view assembly metadata using ILDASM.
+
+.NET Framework Console Application
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello from .NET Framework");
+        Console.ReadLine();
+    }
+}
+
+.NET Core Console Application
+
+using System;
+
+namespace DotNetCoreApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello from .NET Core");
+        }
+    }
+}
+
+Bin Folder Analysis
+
+.NET Framework
+Location:
+bin\Debug\
+
+Files Generated:
+ConsoleApp.exe
+ConsoleApp.pdb
+ConsoleApp.exe.config
+
+.NET Core
+Location:
+bin\Debug\net8.0\
+
+Files Generated:
+ConsoleApp.dll
+ConsoleApp.exe
+ConsoleApp.pdb
+ConsoleApp.runtimeconfig.json
+ConsoleApp.deps.json
+
+ILDASM Command:
+ildasm ConsoleApp.exe
+
+Metadata Output:
+
+Assembly Name  : ConsoleApp
+Version        : 1.0.0.0
+Culture        : neutral
+Public Key Token : null
+
+Module Name    : ConsoleApp.exe
+
+Type Definitions:
+1. Program
+
+Methods:
+1. Main()
+
+Referenced Assemblies:
+1. System
+2. mscorlib
+
+Result:
+The Console Applications were created successfully using .NET Framework and .NET Core. The bin folder contents were analyzed and assembly metadata was viewed using the ILDASM tool.
