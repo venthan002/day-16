@@ -1,0 +1,42 @@
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Method1()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine("Method 1 : " + i);
+        }
+    }
+
+    static void Method2()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine("Method 2 : " + i);
+        }
+    }
+
+    static void Method3()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine("Method 3 : " + i);
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        Thread t1 = new Thread(Method1);
+        Thread t2 = new Thread(Method2);
+        Thread t3 = new Thread(Method3);
+
+        t1.Start();
+        t2.Start();
+        t3.Start();
+
+        Console.ReadLine();
+    }
+}
