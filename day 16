@@ -1,0 +1,28 @@
+VB Class Library Project
+
+Public Class Student
+
+    Public Function GetDetails() As String
+        Return "Student Name: BM"
+    End Function
+
+End Class
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Console Application
+
+using System;
+using VBLibrary;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student obj = new Student();
+
+        Console.WriteLine(obj.GetDetails());
+
+        Console.ReadLine();
+    }
+}
